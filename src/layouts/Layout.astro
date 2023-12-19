@@ -1,7 +1,5 @@
 ---
-import Header from '../components/Header.astro';
-import Content from '../components/Content.astro';
-import Footer from '../components/Footer.astro'
+
 interface Props {
 	title: string;
 }
@@ -19,14 +17,8 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="flex flex-col h-[100dvh] m-auto bg-white">
-		<Header />
-		<Content />
-		<Footer />
-		<main class="max-w-5xl px-4 m-auto">
-			<slot />
-		</main>
-		
+	<body>
+		<slot />		
 	</body>
 </html>
 <style is:global>
@@ -35,7 +27,7 @@ const { title } = Astro.props;
 		background: #FFFFFF;
 		background-size: 224px;
 		color-scheme: dark ;
+		box-sizing: border-box;
 	}
-
 
 </style>

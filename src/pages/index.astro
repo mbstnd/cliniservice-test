@@ -1,9 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Content from '../components/Content.astro';
+import Footer from '../components/Footer.astro';
 
 ---
 
 <Layout title="Cliniservice - Expertos en salud ocupacional">
+    <main class="flex flex-col h-[100dvh] m-auto bg-white">
+        <Header />
+        <Content />
+        <Footer />
+
+    </main>
 	
 </Layout>
 
