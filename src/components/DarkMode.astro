@@ -13,8 +13,7 @@
 >
   <!-- Ícono Sol -->
   <svg
-    class="w-5 h-5 hidden dark:block text-blue-950 dark:text-yellow-300
-           transform transition-transform duration-300 rotate-0 dark:rotate-90"
+    class="w-5 h-5 hidden dark:block text-yellow-400"
     fill="none"
     stroke="currentColor"
     viewBox="0 0 24 24"
@@ -29,8 +28,7 @@
 
   <!-- Ícono Luna -->
   <svg
-    class="w-5 h-5 block dark:hidden text-blue-950 dark:text-white
-           transform transition-transform duration-300 rotate-0 dark:-rotate-90"
+    class="w-5 h-5 block dark:hidden text-blue-950"
     fill="none"
     stroke="currentColor"
     viewBox="0 0 24 24"
@@ -43,44 +41,30 @@
     ></path>
   </svg>
 </button>
+
 <script>
-  const darkMode = document.getElementById("darkMode")
-  const html = document.documentElement
-  const STORAGE_KEY = "darkMode"
+  // Esperar a que el DOM esté listo
+  document.addEventListener("DOMContentLoaded", () => {
+    const darkModeBtn = document.getElementById("darkMode")
+    const html = document.documentElement
 
-  // Función para actualizar tema
-  const updateTheme = (isDark) => {
-    if (isDark) {
+    // Verificar tema inicial
+    const isDarkMode =
+      localStorage.getItem("darkMode") === "true" ||
+      (!localStorage.getItem("darkMode") &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+
+    if (isDarkMode) {
       html.classList.add("dark")
-    } else {
-      html.classList.remove("dark")
     }
-    localStorage.setItem(STORAGE_KEY, isDark.toString())
-  }
 
-  // Función para alternar tema
-  const toggleTheme = () => {
-    const isDark = html.classList.contains("dark")
-    updateTheme(!isDark)
-  }
-
-  // Verificar tema inicial
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
-  const storedTheme = localStorage.getItem(STORAGE_KEY)
-  const initialTheme = storedTheme ? storedTheme === "true" : prefersDark
-
-  // Establecer tema inicial
-  updateTheme(initialTheme)
-
-  // Escuchar click en botón
-  darkMode?.addEventListener("click", toggleTheme)
-
-  // Escuchar cambios en preferencia del sistema
-  window
-    .matchMedia("(prefers-color-scheme: dark)")
-    .addEventListener("change", (e) => {
-      if (!localStorage.getItem(STORAGE_KEY)) {
-        updateTheme(e.matches)
-      }
+    // Manejar click en el botón
+    darkModeBtn?.addEventListener("click", () => {
+      html.classList.toggle("dark")
+      localStorage.setItem(
+        "darkMode",
+        html.classList.contains("dark").toString()
+      )
     })
+  })
 </script>

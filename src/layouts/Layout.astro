@@ -8,7 +8,7 @@ const { title, description } = Astro.props
 ---
 
 <!doctype html>
-<html lang="es" class="light">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -16,65 +16,7 @@ const { title, description } = Astro.props
     <link rel="icon" type="image/png" href="/img/02-logo.png" />
     <title>{title}</title>
   </head>
-  <body class="transition-colors duration-300 bg-white dark:bg-gray-900">
+  <body>
     <slot />
-    <script>
-      function handleTheme() {
-        const isDark = document.documentElement.classList.contains("dark")
-        isDark
-          ? document.documentElement.classList.remove("dark")
-          : document.documentElement.classList.add("dark")
-
-        localStorage.setItem("darkMode", (!isDark).toString())
-      }
-
-      // Verificar tema inicial
-      const darkMode =
-        localStorage.getItem("darkMode") === "true" ||
-        (!localStorage.getItem("darkMode") &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
-
-      if (darkMode) {
-        document.documentElement.classList.add("dark")
-      }
-
-      // Escuchar cambios en el botón de tema
-      document
-        .getElementById("darkMode")
-        ?.addEventListener("click", handleTheme)
-    </script>
   </body>
 </html>
-<style is:global>
-  :root {
-    --primary-color: #1e3a8a;
-    --secondary-color: #0587bf;
-    --bg-primary: #ffffff;
-    --text-primary: #1e293b;
-  }
-
-  :root.dark {
-    --primary-color: #60a5fa;
-    --secondary-color: #05db9a;
-    --bg-primary: #111827;
-    --text-primary: #ffffff;
-  }
-
-  html {
-    font-family: "Inter", system-ui, sans-serif;
-    scroll-behavior: smooth;
-  }
-
-  body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    background: var(--bg-primary);
-    color: var(--text-primary);
-  }
-
-  ::selection {
-    background-color: var(--primary-color);
-    color: white;
-  }
-</style>
