@@ -10,7 +10,9 @@ const description =
 ---
 
 <Layout title={title} description={description}>
-  <div class="flex flex-col min-h-screen bg-white">
+  <div
+    class="flex flex-col min-h-screen bg-gray-900 text-white transition-colors duration-300"
+  >
     <Header />
     <main class="flex-grow">
       <Content />
@@ -18,3 +20,12 @@ const description =
     <Footer />
   </div>
 </Layout>
+
+<style is:global>
+  :root {
+    --primary-color: #60a5fa; /* Azul claro para modo oscuro */
+    --secondary-color: #05db9a; /* Verde para modo oscuro */
+    --bg-color: #111827; /* Gray 900 */
+    --text-color: #ffffff; /* Texto blanco */
+  }
+</style>
