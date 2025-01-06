@@ -1,70 +1,79 @@
 ---
+interface Test {
+  name: string
+  url: string
+}
 
+const tests: Test[] = [
+  {
+    name: "TEST 16-PF",
+    url: "https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAHMiJy9UMTdDQVBUM0xIUTc1NzY3S0VPUFVMM01LUi4u&origin=Invitation&channel=0",
+  },
+  {
+    name: "TEST DE CLAUSTROFOBIA",
+    url: "https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAHMiJy9UMzJQU0UwTTdNSTdZUDdLSEFYQkhZM0FWUC4u&origin=Invitation&channel=0",
+  },
+  {
+    name: "TEST DE HAMILTON",
+    url: "https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAHMiJy9UMkFQWlkwVFNFVVo0SVdBSDJXNVdDMFJGTC4u&origin=Invitation&channel=0",
+  },
+  {
+    name: "CUESTIONARIO DE INTELIGENCIA",
+    url: "https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAHMiJy9UQ1VHWTJOVU5YUkpEUlc1UE1CU0NKOEtIUS4u&origin=Invitation&channel=0",
+  },
+  {
+    name: "ESCALA PRP",
+    url: "https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAHMiJy9UMzMzUjFLTkM0VVpLNk5YQzNPOUpCUTU2SS4u&origin=Invitation&channel=0",
+  },
+  {
+    name: "CUESTIONARIO DE PERSONALIDAD",
+    url: "https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAHMiJy9UM1g4SE1MSE00WTRKUVVGTjRXQ1haVDdORi4u&origin=Invitation&channel=0",
+  },
+  {
+    name: "Test de Liderazgo",
+    url: "https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAHMiJy9UOU80UjNCRUFMVVpMWFIzTEFBMlBaMTZaMS4u",
+  },
+  {
+    name: "Test DISC",
+    url: "https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAHMiJy9UOUU4NkRRVzZSUlYxRjRXNTdGSVpPWDI2RC4u",
+  },
+]
 ---
 
-<section class="py-10 mx-auto text-4xl font-bold text-center text-blue-950 lg:py-16">
-    <h2 class="[text-wrap:balance] uppercase">Cuestionarios CliniService</h2>
+<main class="container mx-auto px-4 py-8 md:py-12">
+  <section class="max-w-4xl mx-auto">
+    <h1
+      class="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-blue-950 uppercase mb-5"
+    >
+      Cuestionarios CliniService
+    </h1>
+    <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+      Seleccione el cuestionario que desea completar
+    </p>
+  </section>
 
-</section>
-
-<section class="flex flex-col items-center flex-grow py-10 text-center md:pt-6 ">
-    <nav class="flex flex-col items-center">
-        <a class="w-full shadow-lg shadow-slate-300 max-w-sm px-6 py-3 mb-4 bg-[#0587BF] text-white text-sm rounded hover:bg-[#05DB9A] hover:text-black transition-colors duration-300 font-medium" 
-        href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAHMiJy9UMTdDQVBUM0xIUTc1NzY3S0VPUFVMM01LUi4u&origin=Invitation&channel=0" 
-        target="_blank"
-        rel="noopener"
+  <section
+    class="grid gap-6 max-w-xl mx-auto"
+    role="region"
+    aria-label="Lista de cuestionarios"
+  >
+    {
+      tests.map((test) => (
+        <a
+          href={test.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group flex items-center justify-center w-full p-5 
+                 text-white bg-[#0587BF] rounded-lg shadow-lg 
+                 hover:bg-[#05DB9A] hover:text-black hover:scale-[1.02]
+                 focus:outline-none focus:ring-2 focus:ring-[#0587BF]
+                 transition-all duration-300 ease-in-out
+                 text-center text-lg uppercase tracking-wide"
+          aria-label={`Abrir cuestionario ${test.name}`}
         >
-        TEST 16-PF
-    </a>
-        <a class="w-full shadow-lg shadow-slate-300 max-w-sm px-6 py-3 mb-4 bg-[#0587BF] text-white text-sm rounded hover:bg-[#05DB9A] hover:text-black transition-colors duration-300 font-medium"
-         href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAHMiJy9UMzJQU0UwTTdNSTdZUDdLSEFYQkhZM0FWUC4u&origin=Invitation&channel=0" 
-         target="_blank"
-         rel="noopener"
-         >
-         TEST DE CLAUSTROFOBIA
+          {test.name}
         </a>
-        <a class="w-full shadow-lg shadow-slate-300 max-w-sm px-6 py-3 mb-4 bg-[#0587BF] text-white text-sm rounded hover:bg-[#05DB9A] hover:text-black transition-colors duration-300 font-medium"
-         href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAHMiJy9UMkFQWlkwVFNFVVo0SVdBSDJXNVdDMFJGTC4u&origin=Invitation&channel=0" 
-         target="_blank"
-         rel="noopener"
-         >
-         TEST DE HAMILTON
-        </a>
-        <a class="w-full shadow-lg shadow-slate-300 max-w-sm px-6 py-3 mb-4 bg-[#0587BF] text-white text-sm rounded hover:bg-[#05DB9A] hover:text-black transition-colors duration-300 font-medium" 
-        href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAHMiJy9UQ1VHWTJOVU5YUkpEUlc1UE1CU0NKOEtIUS4u&origin=Invitation&channel=0" 
-        target="_blank"
-        rel="noopener"
-        >
-        CUESTIONARIO DE INTELIGENCIA
-       </a>
-        <a class="w-full shadow-lg shadow-slate-300 max-w-sm px-6 py-3 mb-4 bg-[#0587BF] text-white text-sm rounded hover:bg-[#05DB9A] hover:text-black transition-colors duration-300 font-medium" 
-        href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAHMiJy9UMzMzUjFLTkM0VVpLNk5YQzNPOUpCUTU2SS4u&origin=Invitation&channel=0" 
-        target="_blank"
-        rel="noopener"
-        >
-        ESCALA PRP
-        </a>
-        <a class="w-full shadow-lg shadow-slate-300 max-w-sm px-6 py-3 mb-4 bg-[#0587BF] text-white text-sm rounded hover:bg-[#05DB9A] hover:text-black transition-colors duration-300 font-medium"
-         href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAHMiJy9UM1g4SE1MSE00WTRKUVVGTjRXQ1haVDdORi4u&origin=Invitation&channel=0" 
-         target="_blank"
-         rel="noopener"
-         >
-         CUESTIONARIO DE PERSONALIDAD
-        </a>
-        <a class="w-full shadow-lg shadow-slate-300 max-w-sm px-6 py-3 mb-4 bg-[#0587BF] text-white text-sm rounded hover:bg-[#05DB9A] hover:text-black transition-colors duration-300 font-medium uppercase"
-        href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAHMiJy9UOU80UjNCRUFMVVpMWFIzTEFBMlBaMTZaMS4u"
-        target="_blank"
-        rel="noopener"
-        >
-        Test de Liderazgo
-       </a>
-       <a class="w-full shadow-lg shadow-slate-300 max-w-sm px-6 py-3 mb-4 bg-[#0587BF] text-white text-sm rounded hover:bg-[#05DB9A] hover:text-black transition-colors duration-300 font-medium uppercase"
-       href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAHMiJy9UOUU4NkRRVzZSUlYxRjRXNTdGSVpPWDI2RC4u"
-       target="_blank"
-       rel="noopener"
-       >
-       Test DISC
-      </a>
-    </nav>
-</section>
-
+      ))
+    }
+  </section>
+</main>
