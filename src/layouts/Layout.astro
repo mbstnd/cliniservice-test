@@ -1,32 +1,50 @@
 ---
-
 interface Props {
-	title: string;
+  title: string
+  description: string
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/png" href="/img/02-logo.png" />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />		
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1e3a8a" />
+    <link rel="icon" type="image/png" href="/img/02-logo.png" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 <style is:global>
-	html {
-		font-family: system-ui, sans-serif;
-		background: #FFFFFF;
-		background-size: 224px;
-		color-scheme: dark ;
-		box-sizing: border-box;
-	}
+  :root {
+    --primary-color: #1e3a8a;
+    --secondary-color: #0587bf;
+  }
+  html {
+    font-family: "Inter", system-ui, sans-serif;
+    background: #ffffff;
+    scroll-behavior: smooth;
+    color-scheme: light;
+  }
 
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  ::selection {
+    background-color: var(--primary-color);
+    color: white;
+  }
 </style>
