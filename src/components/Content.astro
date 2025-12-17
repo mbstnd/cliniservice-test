@@ -40,13 +40,11 @@ const tests: Test[] = [
 ]
 ---
 
-<main
-  class="container mx-auto px-4 py-[10vh] md:py-[12vh] flex-grow flex flex-col justify-center min-h-[90vh]"
->
-  <section class="max-w-6xl mx-auto mb-[8vh] w-full">
+<main class="container mx-auto px-4 py-[0.5rem] flex-grow">
+  <section class="max-w-6xl mx-auto mb-[2.5rem] w-full">
     <header class="text-center">
       <h1
-        class="text-6xl md:text-7xl lg:text-8xl font-bold text-blue-950 dark:text-white mb-[5vh] leading-tight tracking-tight"
+        class="text-5xl md:text-6xl lg:text-7xl font-bold text-blue-950 dark:text-white mb-[1rem] leading-tight tracking-tight"
       >
         Cuestionarios
       </h1>
@@ -64,7 +62,7 @@ const tests: Test[] = [
     aria-label="Lista de cuestionarios disponibles"
   >
     <div class="w-full max-w-4xl">
-      <ul class="grid grid-cols-1 gap-3 list-none p-0">
+      <ul class="grid grid-cols-1 gap-[0.75rem] list-none p-0">
         {
           tests.map((test) => (
             <li>
@@ -72,7 +70,7 @@ const tests: Test[] = [
                 href={test.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="block w-full px-8 py-5 
+                class="block w-full px-[2rem] py-[1.25rem] 
                        text-white bg-[#0587BF] rounded-xl shadow-md 
                        hover:bg-[#05DB9A] hover:text-blue-950 
                        hover:shadow-xl hover:-translate-y-1
