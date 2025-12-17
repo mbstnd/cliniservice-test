@@ -66,6 +66,24 @@
 
           <div class="flex flex-col items-center">
             <div
+              class="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 min-w-[70px] shadow-sm"
+            >
+              <span
+                id="countdown-minutes"
+                class="text-3xl font-mono font-black text-[#0587BF] block"
+                >00</span
+              >
+            </div>
+            <span
+              class="text-[10px] uppercase mt-2 text-slate-400 font-bold tracking-tighter"
+              >Mins</span
+            >
+          </div>
+
+          <div class="text-2xl font-light text-slate-300 mt-4">:</div>
+
+          <div class="flex flex-col items-center">
+            <div
               class="bg-[#0587BF] rounded-xl p-3 min-w-[70px] shadow-lg shadow-blue-500/20 animate-pulse"
             >
               <span
@@ -135,6 +153,7 @@
     const elements = {
       days: document.getElementById("countdown-days"),
       hours: document.getElementById("countdown-hours"),
+      minutes: document.getElementById("countdown-minutes"),
       seconds: document.getElementById("countdown-seconds"),
     }
 
@@ -157,11 +176,14 @@
     const hours = Math.floor(
       (timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
     )
+    const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60))
     const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000)
 
     if (elements.days) elements.days.textContent = String(days)
     if (elements.hours)
       elements.hours.textContent = String(hours).padStart(2, "0")
+    if (elements.minutes)
+      elements.minutes.textContent = String(minutes).padStart(2, "0")
     if (elements.seconds)
       elements.seconds.textContent = String(seconds).padStart(2, "0")
   }
