@@ -3,77 +3,22 @@ import LocationIcon from "../icons/Location.astro"
 import TimeIcon from "../icons/Time.astro"
 ---
 
-<footer class="bg-[#CCDCDA] dark:bg-gray-800 py-8">
+<footer class="bg-[#CCDCDA] dark:bg-gray-800 py-[5vh]">
   <div class="container mx-auto px-4">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="flex flex-col items-center">
-        <h2 class="text-xl font-bold text-blue-950 dark:text-white mb-4">
-          Casa Matriz Antofagasta
-        </h2>
-        <ul class="space-y-3">
-          <li class="flex items-start gap-2">
-            <LocationIcon class="text-blue-950 dark:text-white" />
-            <span class="text-gray-700 dark:text-gray-300">
-              Manuel Antonio Matta 1868, OF 603 - 607
-            </span>
-          </li>
-          <li class="flex items-start gap-2">
-            <TimeIcon class="text-blue-950 dark:text-white" />
-            <span class="text-gray-700 dark:text-gray-300">
-              Lun - Vie: 08:00 - 17:00
-            </span>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Sucursal La Serena -->
-      <div class="flex flex-col items-center">
-        <h2 class="text-xl font-bold text-blue-950 dark:text-white mb-4">
-          Sucursal La Serena
-        </h2>
-        <ul class="space-y-3">
-          <li class="flex items-start gap-2">
-            <LocationIcon class="text-blue-950 dark:text-white" />
-            <span class="text-gray-700 dark:text-gray-300">
-              Larrain Alcalde 1153
-            </span>
-          </li>
-          <li class="flex items-start gap-2">
-            <TimeIcon class="text-blue-950 dark:text-white" />
-            <span class="text-gray-700 dark:text-gray-300">
-              Lun - Vie: 08:00 - 14:00 y 15:00 - 17:00
-            </span>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Sucursal Concepción -->
-      <div class="flex flex-col items-center">
-        <h2 class="text-xl font-bold text-blue-950 dark:text-white mb-4">
-          Sucursal Concepción
-        </h2>
-        <ul class="space-y-3">
-          <li class="flex items-start gap-2">
-            <LocationIcon class="text-blue-950 dark:text-white" />
-            <span class="text-gray-700 dark:text-gray-300">
-              Colo Colo 357 - Local 24
-            </span>
-          </li>
-          <li class="flex items-start gap-2">
-            <TimeIcon class="text-blue-950 dark:text-white" />
-            <span class="text-gray-700 dark:text-gray-300">
-              Lun - Vie: 08:00 - 14:00 y 15:00 - 17:00<br />Sáb: 08:00 - 12:00
-            </span>
-          </li>
-        </ul>
-      </div>
+    <!-- Divider -->
+    <div
+      class="w-full h-px bg-gradient-to-r from-transparent via-blue-950/20 dark:via-white/20 to-transparent mb-[3vh]"
+    >
     </div>
 
-    <div
-      class="text-center mt-8 pt-4 border-t border-blue-950/20 dark:border-white/20"
-    >
-      <p class="text-gray-800 dark:text-gray-300">
-        © {new Date().getFullYear()} CliniService. Todos los derechos reservados.
+    <!-- Footer Bottom -->
+    <div class="text-center">
+      <p
+        class="text-gray-700 dark:text-gray-400 text-sm md:text-base leading-relaxed"
+      >
+        © {new Date().getFullYear()}
+        <span class="font-bold text-blue-950 dark:text-white">CliniService</span
+        > — Todos los derechos reservados
       </p>
     </div>
   </div>
