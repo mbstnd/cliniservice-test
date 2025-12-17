@@ -1,0 +1,171 @@
+<div id="countdown-container" class="w-full font-sans">
+  <div
+    id="active-banner"
+    class="w-full bg-white dark:bg-slate-900 border-b border-gray-100 dark:border-slate-800 shadow-sm py-6 px-4"
+  >
+    <div class="container mx-auto max-w-5xl">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="text-center md:text-left">
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider mb-2"
+          >
+            <span class="relative flex h-2 w-2">
+              <span
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"
+              ></span>
+              <span
+                class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"
+              ></span>
+            </span>
+            Aviso Importante
+          </div>
+          <h3 class="text-xl font-bold text-slate-800 dark:text-white">
+            <!-- Tiempo web vigente -->
+          </h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm">
+            El acceso de la web expira el 31 de diciembre.
+          </p>
+        </div>
+
+        <div class="flex gap-3 md:gap-5">
+          <div class="flex flex-col items-center">
+            <div
+              class="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 min-w-[70px] shadow-sm"
+            >
+              <span
+                id="countdown-days"
+                class="text-3xl font-mono font-black text-[#0587BF] block"
+                >0</span
+              >
+            </div>
+            <span
+              class="text-[10px] uppercase mt-2 text-slate-400 font-bold tracking-tighter"
+              >Días</span
+            >
+          </div>
+
+          <div class="text-2xl font-light text-slate-300 mt-4">:</div>
+
+          <div class="flex flex-col items-center">
+            <div
+              class="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 min-w-[70px] shadow-sm"
+            >
+              <span
+                id="countdown-hours"
+                class="text-3xl font-mono font-black text-[#0587BF] block"
+                >00</span
+              >
+            </div>
+            <span
+              class="text-[10px] uppercase mt-2 text-slate-400 font-bold tracking-tighter"
+              >Horas</span
+            >
+          </div>
+
+          <div class="text-2xl font-light text-slate-300 mt-4">:</div>
+
+          <div class="flex flex-col items-center">
+            <div
+              class="bg-[#0587BF] rounded-xl p-3 min-w-[70px] shadow-lg shadow-blue-500/20 animate-pulse"
+            >
+              <span
+                id="countdown-seconds"
+                class="text-3xl font-mono font-black text-white block">00</span
+              >
+            </div>
+            <span
+              class="text-[10px] uppercase mt-2 text-[#0587BF] font-black tracking-tighter"
+              >Segs</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    id="warning-message"
+    class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/95 backdrop-blur-xl"
+    style="display: none;"
+  >
+    <div
+      class="max-w-md w-full bg-white dark:bg-slate-900 rounded-[2rem] p-10 text-center shadow-2xl border border-white/10"
+    >
+      <div
+        class="w-24 h-24 bg-slate-50 dark:bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner"
+      >
+        <span class="text-5xl">🔒</span>
+      </div>
+      <h2
+        class="text-2xl md:text-3xl font-black text-slate-900 dark:text-white mb-4 tracking-tight"
+      >
+        Acceso Finalizado
+      </h2>
+      <p class="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
+        El periodo oficial para completar los cuestionarios de <span
+          class="font-bold text-[#0587BF]">CliniService</span
+        > ha concluido por cronograma el 31 de diciembre.
+      </p>
+      <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-4 mb-8">
+        <p
+          class="text-xs text-slate-500 uppercase font-bold tracking-widest mb-1"
+        >
+          Estado del Proceso
+        </p>
+        <p class="text-sm font-medium text-slate-700 dark:text-slate-300">
+          Fase de recepción cerrada - En revisión
+        </p>
+      </div>
+      <a
+        href="mailto:soporte@cliniservice.com"
+        class="inline-block w-full py-4 bg-[#0587BF] hover:bg-[#04658a] text-white font-bold rounded-2xl transition-all shadow-lg shadow-blue-500/30 active:scale-95"
+      >
+        Contactar Soporte Técnico
+      </a>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+  function updateCountdown() {
+    const banner = document.getElementById("active-banner")
+    const warning = document.getElementById("warning-message")
+    const content = document.querySelector("main")
+
+    const elements = {
+      days: document.getElementById("countdown-days"),
+      hours: document.getElementById("countdown-hours"),
+      seconds: document.getElementById("countdown-seconds"),
+    }
+
+    const now = new Date()
+    // Fecha límite exacta
+    const endDate = new Date("2025-12-31T23:59:59-03:00")
+    const timeRemaining = endDate.getTime() - now.getTime()
+
+    if (timeRemaining <= 0) {
+      if (banner) banner.style.display = "none"
+      if (warning) warning.style.display = "flex"
+      // Bloqueo total del contenido para que no sea visible
+      if (content) {
+        content.style.display = "none"
+      }
+      return
+    }
+
+    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24))
+    const hours = Math.floor(
+      (timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    )
+    const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000)
+
+    if (elements.days) elements.days.textContent = String(days)
+    if (elements.hours)
+      elements.hours.textContent = String(hours).padStart(2, "0")
+    if (elements.seconds)
+      elements.seconds.textContent = String(seconds).padStart(2, "0")
+  }
+
+  updateCountdown()
+  setInterval(updateCountdown, 1000)
+</script>
