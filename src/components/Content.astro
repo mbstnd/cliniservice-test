@@ -40,42 +40,56 @@ const tests: Test[] = [
 ]
 ---
 
-<main class="container mx-auto px-4 py-8 md:py-12">
-  <section class="max-w-4xl mx-auto">
-    <h1
-      class="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-blue-950 uppercase mb-5 dark:text-white"
-    >
-      Cuestionarios
-    </h1>
-    <p
-      class="text-gray-600 text-center mb-12 max-w-2xl mx-auto dark:text-gray-300"
-    >
-      Seleccione el cuestionario que desea completar
-    </p>
+<main
+  class="container mx-auto px-4 py-[10vh] md:py-[12vh] flex-grow flex flex-col justify-center min-h-[90vh]"
+>
+  <section class="max-w-6xl mx-auto mb-[8vh] w-full">
+    <header class="text-center">
+      <h1
+        class="text-6xl md:text-7xl lg:text-8xl font-bold text-blue-950 dark:text-white mb-[5vh] leading-tight tracking-tight"
+      >
+        Cuestionarios
+      </h1>
+      <p
+        class="text-lg md:text-xl lg:text-2xl text-gray-700 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed font-medium"
+      >
+        Seleccione el cuestionario que desea completar
+      </p>
+    </header>
   </section>
 
   <section
-    class="grid gap-6 max-w-xl mx-auto"
+    class="w-full flex justify-center"
     role="region"
-    aria-label="Lista de cuestionarios"
+    aria-label="Lista de cuestionarios disponibles"
   >
-    {
-      tests.map((test) => (
-        <a
-          href={test.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="group flex items-center justify-center w-full p-5 
-                 text-white bg-[#0587BF] rounded-lg shadow-lg 
-                 hover:bg-[#05DB9A] hover:text-black hover:scale-[1.02]
-                 focus:outline-none focus:ring-2 focus:ring-[#0587BF]
-                 transition-all duration-300 ease-in-out
-                 text-center text-lg uppercase tracking-wide"
-          aria-label={`Abrir cuestionario ${test.name}`}
-        >
-          {test.name}
-        </a>
-      ))
-    }
+    <div class="w-full max-w-4xl">
+      <ul class="grid grid-cols-1 gap-3 list-none p-0">
+        {
+          tests.map((test) => (
+            <li>
+              <a
+                href={test.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block w-full px-8 py-5 
+                       text-white bg-[#0587BF] rounded-xl shadow-md 
+                       hover:bg-[#05DB9A] hover:text-blue-950 
+                       hover:shadow-xl hover:-translate-y-1
+                       active:translate-y-0
+                       focus:outline-none focus:ring-4 focus:ring-[#0587BF]/40 
+                       focus:ring-offset-2 dark:focus:ring-offset-gray-900
+                       transition-all duration-200 ease-out
+                       text-center font-semibold text-base md:text-lg tracking-wide
+                       border-2 border-transparent hover:border-[#0587BF]"
+                aria-label={`Abrir: ${test.name}`}
+              >
+                {test.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
   </section>
 </main>
